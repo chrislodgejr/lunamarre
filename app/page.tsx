@@ -43,25 +43,6 @@ function ScrollProgress() {
   return <motion.div className="fixed left-0 top-0 z-[70] h-1 w-full origin-left bg-agave" style={{ scaleX }} />;
 }
 
-function FloatingNav({ activeSection, setActiveSection }: { activeSection: string; setActiveSection: (id: string) => void }) {
-  return (
-    <div className="fixed bottom-4 left-1/2 z-50 hidden -translate-x-1/2 rounded-full border border-crema/15 bg-mole/70 p-1 shadow-glow backdrop-blur-xl md:flex">
-      {menuSections.map((section) => (
-        <button
-          key={section.id}
-          onClick={() => {
-            setActiveSection(section.id);
-            document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className={`rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] transition ${activeSection === section.id ? 'bg-agave text-chile' : 'text-crema/65 hover:text-crema'}`}
-        >
-          {section.label.replace('The ', '')}
-        </button>
-      ))}
-    </div>
-  );
-}
-
 function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-chile text-agave">
@@ -113,7 +94,7 @@ function Hero() {
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-crema/75">12-hour braised beef, Oaxaca cheese, onion, cilantro, and a rich 3-chile consomme.</p>
             </div>
           </div>
-          <div className="absolute -right-6 -top-8 rounded-[2rem] bg-chile p-3 shadow-glow"><LogoMark className="h-24 w-28 object-contain" /></div>
+          <div className="absolute right-6 top-6 rounded-[1.5rem] bg-chile/95 p-3 shadow-glow backdrop-blur"><LogoMark className="h-20 w-24 object-contain" /></div>
         </motion.div>
       </div>
     </section>
@@ -257,7 +238,6 @@ export default function Home() {
     <main>
       <ScrollProgress />
       <div className="noise" />
-      <FloatingNav activeSection={activeSection} setActiveSection={setActiveSection} />
       <Hero />
       <Marquee />
       <MenuExperience activeSection={activeSection} setActiveSection={setActiveSection} />
