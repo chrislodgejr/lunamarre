@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { ArrowUpRight, CalendarDays, Flame, MapPin, Sparkles, Star, Utensils } from 'lucide-react';
 import { allTags, menuSections, type MenuItem } from '@/lib/menu';
 
@@ -19,18 +19,12 @@ const gallery = [
   {
     label: 'Coastal fire',
     src: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1400&q=85',
-    prompt: 'wood fired octopus zarandeado, charred lemon, moody Mexican coastal supper club lighting'
+    prompt: 'wood-fired octopus zarandeado, charred lemon, moody Mexican coastal supper club lighting'
   }
 ];
 
-function BullMark({ className = '' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 180 120" className={className} aria-hidden="true">
-      <path fill="currentColor" d="M45 42c-7-7-9-17-4-29 9 6 14 15 17 25h42c15 0 25 8 30 19l12 9-4 8-10-6c0 14-5 24-15 31l3 14H96l-4-11c-10 2-19 1-27-3l-5 14H42l7-22c-9-10-10-25-4-49Z" />
-      <path fill="currentColor" d="M128 22c9-1 16-7 21-17 3 11 1 20-7 27 8 5 14 12 18 21-12-3-21-8-27-16l-5-15Z" />
-      <path fill="currentColor" d="m153 7 6 18 19-5-13 14 13 13-19-3-6 18-6-18-19 3 13-13-13-14 19 5 6-18Z" />
-    </svg>
-  );
+function LogoMark({ className = '' }: { className?: string }) {
+  return <img src="/logo.svg" alt="Luna Marre bull and star logo" className={className} />;
 }
 
 function ScrollProgress() {
@@ -59,24 +53,28 @@ function FloatingNav({ activeSection, setActiveSection }: { activeSection: strin
 }
 
 function Hero() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 800], [0, 220]);
-  const rotate = useTransform(scrollY, [0, 700], [0, -8]);
-
   return (
     <section className="relative min-h-screen overflow-hidden bg-chile text-agave">
-      <motion.div className="absolute -left-40 top-16 h-[40rem] w-[40rem] rounded-full bg-agave/20 blur-3xl" style={{ y }} />
-      <motion.div className="absolute right-10 top-24 z-10 hidden h-52 w-52 text-agave md:block" style={{ rotate }}>
-        <BullMark className="h-full w-full drop-shadow-2xl" />
-      </motion.div>
+      <div className="absolute -left-40 top-16 h-[40rem] w-[40rem] rounded-full bg-agave/20 blur-3xl" />
       <div className="absolute inset-y-0 left-1/2 z-0 hidden w-24 -translate-x-1/2 bg-agave md:block" />
       <div className="absolute inset-y-0 left-1/2 z-0 hidden w-6 -translate-x-1/2 bg-chile md:block" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{ duration: 1.1, ease: [0.19, 1, 0.22, 1] }}
+        className="absolute right-4 top-6 z-10 hidden h-64 w-72 md:block lg:right-12 lg:top-10 lg:h-80 lg:w-[23rem]"
+      >
+        <LogoMark className="h-full w-full object-contain drop-shadow-2xl" />
+      </motion.div>
 
       <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-end gap-10 px-5 pb-10 pt-28 md:grid-cols-[1fr_.7fr] md:px-8 lg:px-12">
         <div>
-          <motion.p initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-4 inline-flex items-center gap-2 rounded-full border border-agave/30 bg-agave/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em]">
-            <Sparkles size={14} /> Agave / Corn / Fire
-          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="mb-7 flex items-center gap-4">
+            <LogoMark className="h-20 w-24 object-contain md:hidden" />
+            <p className="inline-flex items-center gap-2 rounded-full border border-agave/30 bg-agave/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.28em]">
+              <Sparkles size={14} /> Agave / Corn / Fire
+            </p>
+          </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.08 }} className="brand-font text-balance text-[19vw] leading-[0.78] tracking-[-0.09em] text-agave md:text-[12rem]">
             Luna<br />Marre
           </motion.h1>
@@ -103,7 +101,7 @@ function Hero() {
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-crema/75">12-hour braised beef, Oaxaca cheese, onion, cilantro, and a rich 3-chile consomme.</p>
             </div>
           </div>
-          <div className="absolute -right-5 -top-5 rounded-full bg-agave p-4 text-chile shadow-glow"><BullMark className="h-16 w-24" /></div>
+          <div className="absolute -right-6 -top-8 rounded-[2rem] bg-chile p-3 shadow-glow"><LogoMark className="h-24 w-28 object-contain" /></div>
         </motion.div>
       </div>
     </section>
@@ -142,13 +140,13 @@ function MenuExperience({ activeSection, setActiveSection }: { activeSection: st
 
   return (
     <section id="menu" className="relative bg-agave py-24 text-chile md:py-32">
-      <div className="absolute right-0 top-16 hidden text-[9rem] font-black uppercase leading-none tracking-[-0.09em] text-chile/10 md:block lg:text-[16rem]">menu</div>
+      <LogoMark className="absolute right-4 top-10 hidden h-48 w-56 object-contain opacity-10 md:block lg:h-72 lg:w-80" />
       <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
         <div className="grid gap-10 lg:grid-cols-[0.7fr_1fr]">
           <div className="lg:sticky lg:top-12 lg:self-start">
             <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-chile px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-agave"><Utensils size={14} /> Menu Design System</p>
             <h2 className="text-balance text-5xl font-black leading-[0.9] tracking-[-0.08em] md:text-7xl">Built from the printed menu.</h2>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-chile/70">The digital experience uses the same agave yellow, chile red, bull iconography, vertical brand treatment, and tight section bars from the supplied Luna Marre artwork.</p>
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-chile/70">The digital experience now uses the supplied Luna Marre bull and star mark as the primary brand device.</p>
             <div className="mt-8 flex flex-wrap gap-2">
               {menuSections.map((entry) => (
                 <button key={entry.id} onClick={() => { setActiveSection(entry.id); setActiveTag('all'); }} className={`rounded-full border px-4 py-3 text-xs font-black uppercase tracking-[0.18em] transition ${activeSection === entry.id ? 'border-chile bg-chile text-agave' : 'border-chile/25 text-chile hover:border-chile'}`}>{entry.label}</button>
@@ -238,7 +236,7 @@ export default function Home() {
       <ReservationBand />
       <footer className="bg-mole px-5 py-10 text-crema/55 md:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 border-t border-crema/10 pt-8 md:flex-row md:items-center">
-          <div className="flex items-center gap-3 text-agave"><BullMark className="h-10 w-16" /><span className="brand-font text-2xl tracking-[-0.08em]">Luna Marre</span></div>
+          <div className="flex items-center gap-3 text-agave"><LogoMark className="h-12 w-16 object-contain" /><span className="brand-font text-2xl tracking-[-0.08em]">Luna Marre</span></div>
           <p className="text-sm">Built for Vercel, GitHub, and optional Supabase capture.</p>
         </div>
       </footer>
