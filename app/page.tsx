@@ -27,6 +27,15 @@ function LogoMark({ className = '' }: { className?: string }) {
   return <img src="/logo.svg" alt="Luna Marre bull and star logo" className={className} />;
 }
 
+function Wordmark({ className = '' }: { className?: string }) {
+  return (
+    <span className={`brand-font block text-agave ${className}`}>
+      <span className="block">Luna</span>
+      <span className="block">Marre</span>
+    </span>
+  );
+}
+
 function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 160, damping: 24 });
@@ -75,8 +84,8 @@ function Hero() {
               <Sparkles size={14} /> Agave / Corn / Fire
             </p>
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.08 }} className="brand-font text-balance text-[19vw] leading-[0.78] tracking-[-0.09em] text-agave md:text-[12rem]">
-            Luna<br />Marre
+          <motion.h1 initial={{ opacity: 0, y: 34 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.08 }} aria-label="Luna Marre" className="leading-[0.78]">
+            <Wordmark className="text-[21vw] md:text-[12rem]" />
           </motion.h1>
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="mt-8 max-w-2xl text-xl leading-relaxed text-agave/85 md:text-2xl">
             A design-forward Mexican supper club: house-made tortillas, polished botanas, slow-cooked tacos, and flame-kissed platos fuertes.
@@ -146,7 +155,7 @@ function MenuExperience({ activeSection, setActiveSection }: { activeSection: st
           <div className="lg:sticky lg:top-12 lg:self-start">
             <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-chile px-4 py-2 text-xs font-black uppercase tracking-[0.28em] text-agave"><Utensils size={14} /> Menu Design System</p>
             <h2 className="text-balance text-5xl font-black leading-[0.9] tracking-[-0.08em] md:text-7xl">Built from the printed menu.</h2>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-chile/70">The digital experience now uses the supplied Luna Marre bull and star mark as the primary brand device.</p>
+            <p className="mt-6 max-w-lg text-lg leading-relaxed text-chile/70">The digital experience now uses the supplied Luna Marre bull and star mark as the primary brand device, paired with a thin rounded wordmark style.</p>
             <div className="mt-8 flex flex-wrap gap-2">
               {menuSections.map((entry) => (
                 <button key={entry.id} onClick={() => { setActiveSection(entry.id); setActiveTag('all'); }} className={`rounded-full border px-4 py-3 text-xs font-black uppercase tracking-[0.18em] transition ${activeSection === entry.id ? 'border-chile bg-chile text-agave' : 'border-chile/25 text-chile hover:border-chile'}`}>{entry.label}</button>
@@ -236,7 +245,7 @@ export default function Home() {
       <ReservationBand />
       <footer className="bg-mole px-5 py-10 text-crema/55 md:px-8 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 border-t border-crema/10 pt-8 md:flex-row md:items-center">
-          <div className="flex items-center gap-3 text-agave"><LogoMark className="h-12 w-16 object-contain" /><span className="brand-font text-2xl tracking-[-0.08em]">Luna Marre</span></div>
+          <div className="flex items-center gap-3 text-agave"><LogoMark className="h-12 w-16 object-contain" /><span className="brand-font text-3xl leading-none tracking-[-0.04em]">Luna Marre</span></div>
           <p className="text-sm">Built for Vercel, GitHub, and optional Supabase capture.</p>
         </div>
       </footer>
