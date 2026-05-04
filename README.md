@@ -1,6 +1,6 @@
 # Luna Marre Website
 
-A high-impact restaurant website built from the Luna Marre menu artwork: chile red, agave yellow, bull/star iconography, vertical brand treatment, bold section bars, animated menu browsing, and an AI-media-ready visual system.
+A high-impact restaurant website built from the Luna Marre menu artwork: chile red, agave yellow, bull/star iconography, exact Luna Marre wordmark artwork, bold section bars, animated menu browsing, and a modern social-forward Mexican restaurant visual system.
 
 ## Stack
 
@@ -55,12 +55,12 @@ create table reservation_requests (
 
 ## Media direction
 
-The current build uses high-quality stock imagery and AI-prompt cards. For a premium launch, generate/commission these assets and replace the image URLs in `app/page.tsx`:
+The current build uses high-quality stock imagery. For a premium launch, generate/commission these assets and replace the image URLs in `app/page.tsx`:
 
-- Hero video: slow-motion tortillas puffing on a comal, chile-red backdrop, agave yellow highlights, editorial food styling.
-- Taco bar loop: birria tacos dipped into consomme, steam, macro lens, moody supper-club light.
+- Hero video: slow-motion tortillas, lime squeeze, chile-red backdrop, agave yellow highlights, editorial food styling.
+- Taco loop: birria tacos dipped into consomme, steam, macro lens, warm modern Mexican restaurant lighting.
 - Platos fuertes loop: wood-fired octopus with charred lemon and glossy sauce brush.
-- Interior mood: red lacquer, yellow menu cards, candlelight, agave silhouettes, modern Mexican supper club.
+- Interior mood: red lacquer, yellow menu cards, candlelight, agave silhouettes, stylish family-friendly dining room with strong social media appeal.
 
 Recommended tools: Adobe Firefly, Midjourney, Runway, Pika, Sora-style generation, or licensed Pexels/Artgrid/Adobe Stock footage.
 
@@ -75,5 +75,6 @@ Recommended tools: Adobe Firefly, Midjourney, Runway, Pika, Sora-style generatio
 
 ## Notes
 
-- The menu text was transcribed from the uploaded `LUNA MARRE MENU 4-20-26` Illustrator/PDF-compatible artwork.
-- The layout intentionally mirrors the menu: aggressive color blocking, section bars, bull/star icon, and vertical brand energy.
+- The food menu text was transcribed from the uploaded `LUNA MARRE MENU 4-20-26` Illustrator/PDF-compatible artwork.
+- The cocktail menu exists as a separate concept document and has not been merged into the main food menu unless intentionally added later.
+- The layout intentionally mirrors the menu: aggressive color blocking, section bars, bull/star icon, exact wordmark artwork, and strong red/yellow brand energy.
