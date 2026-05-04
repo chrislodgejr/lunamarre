@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luna Marre | Coastal Mediterranean</title>
+  <meta name="description" content="Luna Marre coastal Mediterranean restaurant website preview." />
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Luna Marre home">
+      <span class="brand-mark">LM</span>
+      <span>Luna Marre</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a class="active" href="#top">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#experience">Experience</a>
+      <a href="#private-events">Private Events</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="reserve-button" href="#reservations">Reserve</a>
+    <button class="mobile-toggle" type="button" aria-label="Open navigation">☰</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Coastal Mediterranean Restaurant</p>
+        <h1>Moonlit dining by the sea.</h1>
+        <p class="hero-text">Luna Marre is a refined coastal Mediterranean restaurant concept built around fresh seafood, bright produce, elegant cocktails, and warm hospitality.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#reservations">Reserve a Table</a>
+          <a class="button secondary" href="#menu">Explore the Menu</a>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="Luna Marre dining room preview">
+        <div class="floating-card">
+          <strong>Coastal</strong>
+          <span>Mediterranean cuisine, natural wine, seafood, and candlelit atmosphere.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Menu Preview</p>
+          <h2>Bright, fresh, transportive.</h2>
+        </div>
+        <p class="section-note">A sample interactive menu structure ready for your final dishes, pricing, and online ordering links.</p>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box">
+          <span>Search menu</span>
+          <input id="searchInput" type="search" placeholder="Search crudo, pasta, seafood, cocktails..." />
+        </label>
+        <label class="select-box">
+          <span>Category</span>
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="rawbar">Raw Bar</option>
+            <option value="plates">Small Plates</option>
+            <option value="mains">Mains</option>
+            <option value="drinks">Drinks</option>
+          </select>
+        </label>
+        <div class="segmented" aria-label="Menu feature filter">
+          <button class="segment active" data-status="all" type="button">All</button>
+          <button class="segment" data-status="signature" type="button">Signature</button>
+          <button class="segment" data-status="seasonal" type="button">Seasonal</button>
+        </div>
+      </div>
+
+      <div id="menuGrid" class="menu-grid"></div>
+    </section>
+
+    <section id="experience" class="experience-section">
+      <article class="feature-card large">
+        <p class="eyebrow">The Experience</p>
+        <h2>Soft white interiors, ocean tones, and a relaxed luxury rhythm.</h2>
+        <p>Luna Marre should feel polished without being cold: coastal textures, warm light, Mediterranean ingredients, and a service style that feels confident, inviting, and memorable.</p>
+      </article>
+      <article class="feature-card">
+        <span class="icon">☾</span>
+        <h3>Moonlit Bar</h3>
+        <p>Signature cocktails, spritzes, natural wines, and bright zero-proof options.</p>
+      </article>
+      <article class="feature-card">
+        <span class="icon">≈</span>
+        <h3>Seafood Focus</h3>
+        <p>Crudo, whole fish, shellfish, and seasonal coastal preparations.</p>
+      </article>
+    </section>
+
+    <section id="private-events" class="events-section">
+      <div>
+        <p class="eyebrow">Private Events</p>
+        <h2>Built for dinners, celebrations, and brand moments.</h2>
+      </div>
+      <p>Use this section for event inquiry forms, private dining menus, buyout details, and links to event packages.</p>
+      <a class="button primary" href="mailto:events@lunamarre.com">Request Event Info</a>
+    </section>
+
+    <section id="reservations" class="reservation-section">
+      <div>
+        <p class="eyebrow">Reservations</p>
+        <h2>Ready for a booking link.</h2>
+        <p>Add Resy, OpenTable, SevenRooms, Toast Tables, or a direct reservation URL here when ready.</p>
+      </div>
+      <a class="button primary" href="#">Connect Reservation Link</a>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div>
+      <span class="brand-mark footer-mark">LM</span>
+      <p>Luna Marre</p>
+    </div>
+    <div>
+      <strong>Location</strong>
+      <span>Philadelphia, PA</span>
+      <span>Coastal Mediterranean dining</span>
+    </div>
+    <div>
+      <strong>Contact</strong>
+      <a href="mailto:info@lunamarre.com">info@lunamarre.com</a>
+      <a href="tel:+15551234567">(555) 123-4567</a>
+    </div>
+  </footer>
+
+  <dialog id="detailsModal" class="details-modal">
+    <button id="closeModal" class="modal-close" type="button" aria-label="Close">×</button>
+    <img id="modalImage" alt="" />
+    <div class="modal-body">
+      <p id="modalKicker" class="eyebrow"></p>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <button class="button primary" type="button" onclick="document.getElementById('detailsModal').close()">Close Preview</button>
+    </div>
+  </dialog>
+
+  <script src="./script.js"></script>
+</body>
+</html>
